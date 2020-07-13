@@ -8,7 +8,7 @@
 
     <!-- ##### Header Area Start ##### -->
     <nav class="navbar navbar-expand-lg navbar-white fixed-top" id="banner">
-        <div class="container">logo
+        <div class="container">
             <!-- Brand -->
             <a class="navbar-brand" href="#"><span><img src="<?=base_url('resources/landingpage/img/core-img/logo.png');?>" alt="logo"></span> Colectivo Mhödi</a>
 

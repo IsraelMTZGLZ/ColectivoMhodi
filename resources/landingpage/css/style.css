@@ -1,4 +1,4 @@
-/*** 
+/***
 ====================================================================
   Table of contents
 ====================================================================
@@ -7,28 +7,28 @@
 - Css Imports
 - General Css Styles
 - Header Area style
-- Welcome Area Styles 
+- Welcome Area Styles
 - Partners area style
-- About us area style 
-- services-block-four style 
-- Demo-video area style 
-- Trust area style 
-- services area style 
+- About us area style
+- services-block-four style
+- Demo-video area style
+- Trust area style
+- services area style
 - Call-to-action area style
-- Video area style 
-- Gallery area style 
-- Cool-facts style 
+- Video area style
+- Gallery area style
+- Cool-facts style
 - Price table style
-- Testimonials area style 
+- Testimonials area style
 - Team area style
-- Blog area style 
-- Contact us style 
-- FAQ style -Timeline style 
-- Footer area style 
+- Blog area style
+- Contact us style
+- FAQ style -Timeline style
+- Footer area style
 
 ***/
 
-/*** 
+/***
 
 ====================================================================
   Google fonts
@@ -38,7 +38,7 @@
 
 @import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700');
 
-/*** 
+/***
 
 ====================================================================
   Import All Css
@@ -54,7 +54,7 @@
 @import 'animated-headline.css';
 @import 'font-awesome.min.css';
 
-/*** 
+/***
 
 ====================================================================
   General css style
@@ -425,7 +425,7 @@ ol {
     .mt-x{
         margin-top: 30px !important
     }
-    
+
     .main-ilustration-5{
         height: 65vh !important
     }
@@ -445,7 +445,7 @@ ol {
         display: none;
     }
     .spons{
-        border-top: 1px solid #eee 
+        border-top: 1px solid #eee
     }
     .spons img{
         width: 80%
@@ -481,12 +481,12 @@ ol {
 .scew-bg{
     background: url(../img/svg/bg-header1.svg) no-repeat;
     background-size: cover
-    
+
 }
 .travel-bg{
     background: url(../img/bg-img/travel-bg.html) no-repeat;
     background-size: cover
-    
+
 }
 .relative{
     position: relative;
@@ -623,7 +623,7 @@ ol {
     z-index: 1;
 }
 .has-gradient{
-    background-image: linear-gradient(to right, #21d397 0%, #7450fe 100%); 
+    background-image: linear-gradient(to right, #21d397 0%, #7450fe 100%);
 }
 .has-border-top{
     border-top: 1px solid #eee
@@ -677,7 +677,7 @@ ol {
     height: 1000px;
 }
 
-.login-btn {
+.login-btn{
     position: relative;
     z-index: 1;
     color: #fff;
@@ -687,22 +687,72 @@ ol {
     padding: 0 20px;
     min-width: 100px;
     color: #fff !important;
-    background: rgba(116, 80,254,0.7);
+    background: #28B463 ;
     height: 35px;
     border-radius: 50px;
     border: 1px solid;
     letter-spacing: 1px;
-    border-color: #fff;
+    /* border-color: #fff; */
+    /* this is optional */
+    /* position: relative;
+  	text-align: center; */
+  	color:#fff;
+  	text-decoration: none;
+  	font-family: sans-serif;
+  	box-sizing: border-box;
+  	/* background: linear-gradient(90deg,#03a9f4,#f441a5,#ffeb3b,#03a9f4); */
+  	background-size: 400%;
+
+
 }
 .special-span{
     color: #f8f517 !important;
 }
-.login-btn:hover,
+
+
+.login-btn:hover{
+	animation: animate 8s linear infinite;
+}
+
+@keyframes animate{
+	0%{
+		background-position: 0%;
+	}
+	100%{
+		background-position: 400%;
+	}
+}
+
+
+.login-btn:before{
+
+	content: '';
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	bottom: 0px;
+	z-index: -1;
+	background: linear-gradient(90deg,#2ECC71 ,#ffeb3b,#03a9f4);
+	background-size: 400%;
+	border-radius: 40px;
+	opacity: 0;
+	transition: 0.5s;
+
+
+}
+
+.login-btn:hover:before{
+	filter: blur(20px);
+	opacity: 1;
+	animation: animate 8s linear infinite;
+}
+/* .login-btn:hover,
 .login-btn:focus {
     color: #fff;
-    background: #7450fe;
-    border-color: #7450fe;
-}
+    background: #F4D03F ;
+    border-color: #fff;
+} */
 
 .info-btn {
     position: relative;
@@ -721,8 +771,8 @@ ol {
     color: #fff;
     box-shadow: 0 3ox 20px rgba(0, 0, 0, 0.1);
     border-radius: 100px;
-    background-image: -webkit-linear-gradient(left, #21d397 0%, #7450fe 51%, #21d397 100%);
-    background-image: linear-gradient(to right, #21d397 0%, #7450fe 51%, #21d397 100%);
+    background-image: -webkit-linear-gradient(left, #2ECC71  0%,#2ECC71 51%, #58D68D 100%);
+    background-image: linear-gradient(to right, #2ECC71  0%, #2ECC71  51%, #58D68D 100%);
     -webkit-transition: all 500ms;
     transition: all 500ms;
 }
@@ -795,7 +845,7 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
     transition: padding-top .3s,padding-bottom .3s;
     border: none;
     }
-    
+
  .shrink {
     animation: .3s ease-in-out;
     animation-name: fadeInDown;
@@ -1146,7 +1196,7 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
 }
 @media (max-width: 992px){
     .main-ilustration-5{
-        height: 65vh 
+        height: 65vh
     }
     .main-ilustration-8{
         display: none;
@@ -1182,7 +1232,7 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
         margin-bottom: 30px
     }
     .main-ilustration-6{
-        height: 65vh 
+        height: 65vh
     }
     .welcome-content{
         padding-right: 15px
@@ -1232,7 +1282,7 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
     .welcome-small-wrapper{
        display: none;
     }
-    
+
 }
 .main-ilustration-2:before{
     content: '';
@@ -1300,7 +1350,7 @@ nav{-webkit-transition: padding-top .3s,padding-bottom .3s;
     font-size: 18px;
     color: #fff;
     margin-bottom: 30px;
-} 
+}
 
 p.artficial{
     padding-left: 20px;
@@ -1595,7 +1645,7 @@ p.artficial:before{
 .article p{color: #888}
 .article:hover,
 .article.hover{
-    background-image: linear-gradient(to right, #21d397 0%, #7450fe 100%); 
+    background-image: linear-gradient(to right, #21d397 0%, #7450fe 100%);
 }
 .article:hover .article__title,
 .article:hover p,
@@ -1603,10 +1653,10 @@ p.artficial:before{
 .article.hover .article__title,
 .article.hover p,
 .article.hover .article__icon {
-    color: #fff 
+    color: #fff
 }
 
-/*** 
+/***
 
 ====================================================================
   services-block-four style
@@ -1730,7 +1780,7 @@ p.artficial:before{
   border-radius: 50%;
   transform: scale(0);
   transition: .7s ease;
-  
+
 }
 .services-block-four .inner-box:hover .icon-box:after {
   transform: scale(1);
@@ -1805,11 +1855,11 @@ p.artficial:before{
   -o-transition:all 0.3s ease;
 }
 .services-block-four .inner-box .icon-box{
-    color: #25cbd3 
+    color: #25cbd3
 }
 
 .services-block-four .inner-box h3 a:hover{
-  
+
 }
 
 .services-block-four .inner-box .text{
@@ -2126,7 +2176,7 @@ p.artficial:before{
 }
 @media (max-width: 992px){
     .how {
-        border-top: 1px solid #eee 
+        border-top: 1px solid #eee
     }
 }
 .how .service_icon .white-icon{
@@ -2920,14 +2970,14 @@ p.artficial:before{
     font-size: 18px;
     text-transform: uppercase;
     margin-bottom: 20px;
-    
+
 }
 
 .price_table_text > h1 {
     font-size: 48px;
     margin-bottom: 25px;
     line-height: 1;
-    color: #3964f9 
+    color: #3964f9
 }
 
 .price_table_text > p,
@@ -3176,7 +3226,7 @@ p.artficial:before{
     margin-right: 10px
 }
 
-/*** 
+/***
 
 ====================================================================
     What we do
@@ -3191,7 +3241,7 @@ p.artficial:before{
 
 .what-we-do .outer{
     position:relative;
-    padding-top:20px;   
+    padding-top:20px;
 }
 
 .what-we-do .outer .inner-circle{
@@ -3226,21 +3276,21 @@ p.artficial:before{
     width:500px;
     height:500px;
     border:1px solid #f5f5f5;
-    border-radius:50%;  
+    border-radius:50%;
 }
 
 .what-we-do .outer .header-wraperumn{
-    float:right;    
+    float:right;
 }
 
 .service-box-three{
     position:relative;
     margin-bottom:30px;
-    z-index:1;  
+    z-index:1;
 }
 
 .what-we-do .outer .service-box-three{
-    margin-bottom:50px;    
+    margin-bottom:50px;
 }
 
 .what-we-do .outer .service-box-three:first-child{
@@ -3306,11 +3356,11 @@ p.artficial:before{
 .service-box-four{
     position:relative;
     margin-bottom:30px;
-    z-index:1;  
+    z-index:1;
 }
 
 .what-we-do .outer .service-box-four{
-    margin-bottom:50px;    
+    margin-bottom:50px;
 }
 
 
@@ -3379,9 +3429,9 @@ p.artficial:before{
 }
 @media only screen and (max-width: 1200px){
     .what-we-do .outer .inner-circle{
-        display:none;   
+        display:none;
     }
-    
+
     .what-we-do .outer .service-box-three:first-child,
     .what-we-do .outer .service-box-three:last-child,
     .what-we-do .outer .service-box-four:first-child,
@@ -3395,7 +3445,7 @@ p.artficial:before{
 @media only screen and (max-width: 767px){
     .what-we-do .outer:before,
     .what-we-do .outer:after{
-        display:none;   
+        display:none;
     }
     .what-we-do .outer .service-box-three,
     .what-we-do .outer .service-box-four{
@@ -3405,16 +3455,16 @@ p.artficial:before{
     .what-we-do .outer .service-box-four:last-child,
     .what-we-do .outer .service-box-three,
     .what-we-do .outer .service-box-four{
-        margin-bottom:50px; 
+        margin-bottom:50px;
     }
-    
+
     .service-box-three .inner-box,
     .service-box-four .inner-box{
         padding-left:0px;
         padding-right:0px;
-        text-align:center;  
+        text-align:center;
     }
-    
+
     .service-box-three .icon-box,
     .service-box-four .icon-box{
         position:relative;
@@ -3423,7 +3473,7 @@ p.artficial:before{
         top:0px;
         right:0px;
         bottom:0px;
-        margin:0 auto 30px; 
+        margin:0 auto 30px;
     }
 }
 
@@ -4784,7 +4834,7 @@ body.light-version {
     color: #fff
 }
 .light-version .subscribe .group input{
-    border-bottom-color: rgba(255, 255, 255, 0.2) !important 
+    border-bottom-color: rgba(255, 255, 255, 0.2) !important
 }
 .light-version .demo-video{
     background: linear-gradient(to right, #4834d4, #341f97);
@@ -4795,7 +4845,7 @@ body.light-version {
     color: rgba(255,255,255,.7)
 }
 .light-version .our_services_area{
-    padding-bottom: 70px 
+    padding-bottom: 70px
 }
 
 .light-version .service_single_content {
@@ -4857,7 +4907,7 @@ body.light-version {
 .demo-item {
     -webkit-box-shadow: 0 2px 28px rgba(0,0,0,.1);
     box-shadow: 0 2px 28px rgba(0,0,0,.1);
-    transition: all .3s ease-in;   
+    transition: all .3s ease-in;
     overflow: hidden;
     background: #fff;
     margin-bottom: 30px
