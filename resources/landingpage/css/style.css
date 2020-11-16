@@ -1645,7 +1645,9 @@ p.artficial:before{
 .article p{color: #888}
 .article:hover,
 .article.hover{
-    background-image: linear-gradient(to right, #21d397 0%, #7450fe 100%);
+    background-image: -webkit-linear-gradient(left, #5DADE2 0%, #1ABC9C 100%);
+    background-image: -o-linear-gradient(left, #5DADE2 0%, #1ABC9C 100%);
+    background-image: linear-gradient(to right, #5DADE2 0%, #1ABC9C 100%);
 }
 .article:hover .article__title,
 .article:hover p,
@@ -3262,7 +3264,7 @@ p.artficial:before{
     position: absolute;
     width: 100%;
     left: 50%;
-    top: -110px;
+    top: 0px;
     transform: translateX(-50.5%);
 }
 
@@ -3322,7 +3324,7 @@ p.artficial:before{
     color: #fff !important;
     font-size:30px;
     border-radius:50%;
-    background-image: linear-gradient(to right, #21d397 0%, #7450fe 100%);
+    background-image: linear-gradient(to right, #3498DB  0%, #17D9A1  100%);
     transition:all 300ms ease;
     -moz-transition:all 300ms ease;
     -webkit-transition:all 300ms ease;
@@ -3387,7 +3389,7 @@ p.artficial:before{
     color:#fff !important;
     font-size:30px;
     border-radius:50%;
-    background-image: linear-gradient(to right, #7450fe 0%, #21d397 100%);
+    background-image: linear-gradient(to right, #3498DB  0%, #17D9A1  100%);
     transition:all 300ms ease;
     -moz-transition:all 300ms ease;
     -webkit-transition:all 300ms ease;
@@ -3809,10 +3811,11 @@ textarea:required {
     top: 0;
     left: 0;
     z-index: 10;
-    background: rgba(72, 52, 212, 0.95);
-    background: -webkit-linear-gradient(to right, rgba(72, 52, 212, 0.95), rgba(52, 31, 151, 0.95));
-    background: -webkit-linear-gradient(left, rgba(72, 52, 212, 0.95), rgba(52, 31, 151, 0.95));
-    background: linear-gradient(to right, rgba(72, 52, 212, 0.95), rgba(52, 31, 151, 0.95));
+    background: rgba(52, 152, 219 , 0.95);
+    background: -webkit-linear-gradient(to right, rgba(52, 152, 219 , 0.95), rgba(52, 152, 219 , 0.95));
+    background: -webkit-linear-gradient(left, rgba(52, 152, 219 , 0.95), rgba(52, 152, 219 , 0.95));
+    background: linear-gradient(to right, rgba(35, 198, 198    , 0.95), rgba(52, 152, 219  , 0.95));
+      /* background: linear-gradient(to right, rgba(240, 230, 9   , 0.95), rgba(52, 152, 219  , 0.95)); */
 }
 
 .breadcumb--con {
@@ -4950,4 +4953,14 @@ body.light-version {
 }
 .preview-demo:hover{
     color: #333
+}
+
+
+/* new styles by Isrel Mtz Glz */
+.lyrinc-style{
+  color: #2ECC71;
+}
+
+.filosofia-text{
+  font-size: 20px;
 }

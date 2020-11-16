@@ -11,22 +11,26 @@
                     <div class="col-12 col-lg-6 col-md-12">
                         <div class="welcome-content">
                             <div class="promo-section">
-                                <h3 class="special-head dark">Creative landing page template</h3>
+                                <h3 class="special-head dark">Colectivo M h ö d i  </h3>
                             </div>
-                            <h1 class="fadeInUp" data-wow-delay="0.2s">The greatest landing page on market. </h1>
-                            <p class="w-text fadeInUp" data-wow-delay="0.3s">We have over 15 year exprience in business consultting arena. We have over 15 year exprience in business consultting arena and artficial intelligence.</p>
+                            <h1 class="fadeInUp" data-wow-delay="0.2s">Objetivo </h1>
+                            <p class="w-text fadeInUp" data-wow-delay="0.3s">Fomentar la importancia de la cultura Hñöhñö a través de los medios digitales. Así como impulsar  su enseñanza  para la preservación de la misma.</p>
                             <div class="info-btn-group fadeInUp" data-wow-delay="0.4s">
-                                <a href="#" class="btn info-btn mr-3">contact us</a>
-                                <a href="#" class="btn info-btn"> Learn more</a>
+                                <a href="#" class="btn info-btn mr-3">contactanos</a>
+                                <a href="#" class="btn info-btn"> leer más</a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 col-lg-6 col-md-12 ">
-                        <div class="mt-30 fadeInUp" style="" data-wow-delay="0.5s">
-                            <img src="img/core-img/app-5.png" alt="" class="img-responsive center-block">
+                    <div class="service-img-wrapper col-lg-6 col-md-12 col-sm-12 ">
+                        <div class="image-box" style="" data-wow-delay="0.5s">
+                            <img src="<?=base_url('resources/landingpage/img/core-img/colectivo-removebg-preview.png');?>" alt="" class="img-responsive center-block">
                         </div>
                     </div>
-
+                    <!-- <div class="service-img-wrapper col-lg-6 col-md-12 col-sm-12">
+                        <div class="image-box">
+                            <img src="<?=base_url('resources/landingpage/img/core-img/app-3.png');?>" class="img-responsive center-block" alt="">
+                        </div>
+                    </div> -->
                 </div>
             </div>
         </div>

@@ -21,5 +21,11 @@
       <link rel="stylesheet" href="<?=base_url('resources/landingpage/css/style.css');?>">
     <!-- Responsive Stylesheet -->
     <link rel="stylesheet" href="<?=base_url('resources/landingpage/css/responsive.css');?>">
+    <link rel="stylesheet" href="<?=base_url('resources/landingpage/css/timeline.css');?>" >
+
+    <!-- extra by Israel Mtz Glz -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100i,300,400,500,700" rel="stylesheet">
+    <!-- <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet"><link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css'><link rel="stylesheet" href="./style.css"> -->
+
 
 </head>
