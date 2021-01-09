@@ -52,7 +52,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="contact-us.html">Extra</a>
                     </li> -->
-                    <li class="lh-55px"><a href="#" class="btn login-btn ml-50">Iniciar!</a></li>
+                    <li class="lh-55px"><a href="<?= ("Login") ? './Login' : 'Login' ;?>" class="btn login-btn ml-50">Iniciar!</a></li>
 
                 </ul>
             </div>

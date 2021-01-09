@@ -59,6 +59,8 @@ $route['Trayectoria'] = 'Informativa/Trayectoria';
 $route['Filosofia'] = 'Informativa/Filosofia';
 $route['Contacto'] = 'Informativa/Contactos';
 
-
+$route['Login'] = 'Login/Login';
+$route['Registro'] = 'Login/Registro';
+$route['Registro/googleRegister'] = 'Login/Registro/googleRegister';
 
 $route['Blog'] = 'Informativa/Blog';
