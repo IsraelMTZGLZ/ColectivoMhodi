@@ -14,7 +14,7 @@
     <title>Colectivo Mhödi</title>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="<?=base_url('resources/landingpage/img/core-img/favicon.png');?>" type="image/x-icon" />
+      <link rel="shortcut icon" href="<?=base_url('resources/landingpage/img/core-img/favicon.png');?>" type="image/x-icon" />
 
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="css/style.css">

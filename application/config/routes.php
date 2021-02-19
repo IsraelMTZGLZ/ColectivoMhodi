@@ -49,18 +49,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'Inicio';
-$route['404_override'] = '';
+$route['default_controller'] = 'Redirect';
+$route['404_override'] = 'Show404';
 $route['translate_uri_dashes'] = FALSE;
+$route['Home'] = 'Welcome';
 
+$route['Login/Facebook'] = 'Login/Login/llamarFacebook';
+$route['Login'] = 'Login/Login';
+$route['Login/google_login'] = 'Login/Login/google_login';
+$route['Login/forgotPassword'] = 'Login/ForgotPassword';
+$route['Registro'] = 'Login/Registro';
+$route['Registro/googleRegister'] = 'Login/Registro/googleRegister';
+$route['Language/spanish'] = 'LanguageSwitcher/switchLang/spanish';
+$route['Language/english'] = 'LanguageSwitcher/switchLang/english';
 
 $route['Inicio'] = 'Inicio';
 $route['Trayectoria'] = 'Informativa/Trayectoria';
 $route['Filosofia'] = 'Informativa/Filosofia';
 $route['Contacto'] = 'Informativa/Contactos';
 
-$route['Login'] = 'Login/Login';
-$route['Registro'] = 'Login/Registro';
-$route['Registro/googleRegister'] = 'Login/Registro/googleRegister';
+
 
 $route['Blog'] = 'Informativa/Blog';

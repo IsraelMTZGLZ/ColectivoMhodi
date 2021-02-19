@@ -1,168 +1,33 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-/*
-* Controlador para el login de la pagina inicial
-* @package	CRM
-* @author	Ing. Hector Israel Urias Mendez. Tel:4428902133. Email:hectori.um.15@gmail.com
-* @author   Ing. Israel Martinez Gonzalez. Tel:4423818866. Email:israelmg250598@gmail.com
-* @since	Version 1.0.0
-*/
+
 class Login extends MY_RootController {
 
-    //Funcion constructor
-	public function __construct() {//funcion sin parametros
-		parent::__construct();//invocar el parent o padre del constructor
-        //redirect('Home');
-		require_once APPPATH.'third_party/src/Google_Client.php';//cargar la libreria de google
-		require_once APPPATH.'third_party/src/contrib/Google_Oauth2Service.php';//cargar libreria de google
-		$this->load->library('facebook');//cargar la libreria de facebook
+	public function __construct() {
+		parent::__construct();
+		//redirect('Home');
+		require_once APPPATH.'third_party/src/Google_Client.php';
+		require_once APPPATH.'third_party/src/contrib/Google_Oauth2Service.php';
+		$this->load->library('facebook');
     }
 
-    //Funcion index o inicial del controlador
 	public function index()
 	{
-		if (@$this->session->userdata('user_sess')->email) {//revisar si existe un correo como session ya guardada
-			if (@$this->session->userdata('user_sess')->statusU=="Activo") {//revisar que el status del aspirante es activo
-				if (@$this->session->userdata('user_sess')->typeUsuario=="Aspirante") {//revisar el tipo de usuario que ingresa al sistema si es aspirnate
-					$response = $this->_callApiRest('Aspirante/api/aspirante/id/'.$this->session->userdata('user_sess')->usuario,null,"GET",null);//llamar a la vista de aspirante para traer el aspirante en especifico
-					$object = json_decode(json_encode($response['data']), FALSE);//convertir la respuesta de un arreglo a un objeto
-					$this->session->set_userdata('user_sess',$object);//anadirlo a la sesion del usuario el nuevo usuario que se reciba
+		if (@$this->session->userdata('user_sess')->email) {
+			if (@$this->session->userdata('user_sess')->statusU=="Activo") {
+				if (@$this->session->userdata('user_sess')->typeUsuario=="Estudiante") {
+					$response = $this->_callApiRest('Estudiante/api/Estudiante/id/'.$this->session->userdata('user_sess')->usuario,null,"GET",null);
+					$object = json_decode(json_encode($response['data']), FALSE);
+					$this->session->set_userdata('user_sess',$object);
 					//echo var_dump($object->persona);
-					if (@$this->session->userdata('user_sess')->aspirante==null) {
+					if (@$this->session->userdata('user_sess')->estudiante==null) {
 						//no ha llenado toda su informacion
 						redirect('Dashboard/InformacionAspirante');
 					}elseif (@$this->session->userdata('user_sess')->programaDeInteres==null){
 						//selecionar el programa
 						redirect('Dashboard/EleccionUniversidad');
 					}else{
-						if(@$this->session->userdata('user_sess')->statusAspiranteControl=='Inactivo'){
-							redirect('CallAgents');
-						}else{
-							//ha llenado toda su informacion
-							if($this->session->userdata('user_sess')->programaDeInteres == "Universidad"){
-								$response = $this->_callApiRest('AspiranteUniversidades/api/aspiranteUniversidadesBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-								//echo var_dump($response['data']);
-								if($response['data']){
-									//ya acompleto el tipo de estudio y eligio facultad
-									if($response['data']['anioMesIngreso']){
-										//ya selecciono las universidades que le interesan
-										redirect('Dashboard/HomeAspirante');
-									}else{
-										redirect('Dashboard/Universidad/UniversidadesFacultad');
-									}
-								}else{
-									//no ha llenado los campos nesesarios de la universidad
-									redirect('Dashboard/Universidad/DatosUniversidad');
-								}
-							}elseif ($this->session->userdata('user_sess')->programaDeInteres == "Preparatoria") {
-								$response = $this->_callApiRest('AspirantePreparatorias/api/aspirantePreparatoriasBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-								//echo var_dump($response['data']);
-								if($response['data']){
-									//ya acompleto el tipo de estudio y eligio tipo de alojamiento
-									if($response['data']['anioMesIngreso']){
-										//ya selecciono las preparatorias que le interesan
-										redirect('Dashboard/HomeAspirante');
-									}else{
-										redirect('Dashboard/Preparatoria/PreparatoriasFacultad');
-									}
-								}else{
-									//no ha llenado los campos nesesarios de la universidad
-									redirect('Dashboard/Preparatoria/DatosPreparatoria');
-								}
 
-							}
-						// 	else{
-						// 		//no ha llenado los campos nesesarios de la universidad
-						// 		redirect('Dashboard/Preparatoria/DatosPreparatoria');
-						// 	}
-						// }
-						else if($this->session->userdata('user_sess')->programaDeInteres == "CursoIngles"){
-							$response = $this->_callApiRest('Ingles/api/aspiranteInglesBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-							//echo var_dump($response['data']);
-							if($response['data']){
-								//ya acompleto el tipo de estudio y eligio tipo de alojamiento
-								$responsema = $this->_callApiRest('Ingles/api/aspiranteVerInglesBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-								if($responsema['data']['anioMesIngreso']){
-									//ya selecciono las preparatorias que le interesan
-										redirect('Dashboard/HomeAspiranteIngles');
-								}else{
-								redirect('Dashboard/Ingles/StepInst');
-								}
-							}else{
-
-									 redirect('EnglishSteps');
-
-								// redirect('Dashboard/Verano/HomeAspiranteVI');
-							}
-						}else if($this->session->userdata('user_sess')->programaDeInteres == "CursoVeranoIngles"){
-							$response = $this->_callApiRest('Verano/Ingles/api/aspiranteVerInglesBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-							//echo var_dump($response['data']);
-							if($response['data']){
-								//ya acompleto el tipo de estudio y eligio tipo de alojamiento
-								if($response['data']['anioMesIngreso']){
-									//ya selecciono las preparatorias que le interesan
-									redirect('Dashboard/Verano/HomeAspiranteVI');
-								}else{
-									redirect('Dashboard/HomeAspiranteIngles');
-								}
-							}else{
-								//no ha llenado los campos nesesarios de la universidad
-								$responseStep = $this->_callApiRest('Verano/Ingles/api/aspiranteVerInglesStepsBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-								//no ha llenado los campos nesesarios de la universidad
-								if($responseStep['data']){
-									//ya selecciono las preparatorias que le interesan
-									redirect('Dashboard/HomeAspiranteIngles');
-								}else{
-									 redirect('VeranoSteps');
-								}
-							}
-
-						}else if($this->session->userdata('user_sess')->programaDeInteres == "CursoVeranoAcademico"){
-							$response = $this->_callApiRest('Verano/Ingles/api/aspiranteVerInglesBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-							//echo var_dump($response['data']);
-							if($response['data']){
-								//ya acompleto el tipo de estudio y eligio tipo de alojamiento
-								if($response['data']['anioMesIngreso']){
-									//ya selecciono las preparatorias que le interesan
-									redirect('Dashboard/HomeAspiranteIngles');
-								}else{
-									redirect('Dashboard/Verano/TestThree');
-								}
-							}else{
-								//no ha llenado los campos nesesarios de la universidad
-								$responseStep = $this->_callApiRest('Verano/Ingles/api/aspiranteVerInglesStepsBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-								//no ha llenado los campos nesesarios de la universidad
-								if($responseStep['data']){
-									//ya selecciono las preparatorias que le interesan
-									redirect('Dashboard/Verano/TestThree');
-								}else{
-									 redirect('VeranoSteps');
-								}
-								// redirect('VeranoSteps');
-							}
-
-							}else if($this->session->userdata('user_sess')->programaDeInteres == "CursoVerano"){
-								$response = $this->_callApiRest('Verano/Ingles/api/aspiranteVerInglesBYAspirante/id/'.$this->session->userdata('user_sess')->aspirante,null,"GET",null);
-								//echo var_dump($response['data']);
-								if($response['data']){
-									//ya acompleto el tipo de estudio y eligio tipo de alojamiento
-									if($response['data']['anioMesIngreso']){
-										//ya selecciono las preparatorias que le interesan
-										redirect('Dashboard/HomeAspiranteIngles');
-									}else{
-										redirect('Dashboard/Verano/TestThree');
-									}
-								}else{
-									//no ha llenado los campos nesesarios de la universidad
-									redirect('VeranoEleccion');
-								}
-
-							}
-
-
-						}
-
-						redirect('ComingSoon');
 					}
 				}else if (@$this->session->userdata('user_sess')->typeUsuario=="Agente") {
 					//echo 'entro';
@@ -182,7 +47,7 @@ class Login extends MY_RootController {
 				}
 			}
 		}
-		unset($_SESSION['blog']);
+		 unset($_SESSION['blog']);
 		$this->load->view('Login/login_view');
 	}
 
@@ -207,14 +72,11 @@ class Login extends MY_RootController {
 	public function google_login()
 	{
 		$clientId = '846059479473-nk4bq494i4lhb247j1rd3b6v8ltkj95s.apps.googleusercontent.com'; //Google client ID
-    //775536028295-i3nkt4kledmhfo0pv22tqn8uccgodakt.apps.googleusercontent.com
-    $clientSecret = 'BrIhlAOnVDeC7QZ7G5dhlbib'; //Google client secret
-    //QtZKx7DaseMCnfWTGbHJ-FAs
-
+		$clientSecret = 'BrIhlAOnVDeC7QZ7G5dhlbib'; //Google client secret
 		//google
-		$redirectURL = 'https://www.anglolatinoedu.com/Login/Login/google_login/';
+		//$redirectURL = 'https://www.anglolatinoedu.com/Login/Login/google_login/';
 		//local
-		//$redirectURL = 'http://localhost/angloWeb/Login/Login/google_login/';
+		$redirectURL = 'http://localhost/angloWeb/Login/Login/google_login/';
 
 		//Call Google API
 		$gClient = new Google_Client();
@@ -247,9 +109,9 @@ class Login extends MY_RootController {
 				);
 				$data_to_string=json_encode($data);
 			//peticiones http
-			$curl_request = curl_init("https://api.anglolatinoedu.com/User/api/loginPlus");
+			//$curl_request = curl_init("https://api.anglo.anglolatinoedu.com/User/api/loginPlus");
 			//local
-			//$curl_request = curl_init("http://localhost/angloApi/User/api/loginPlus");
+			$curl_request = curl_init("http://localhost/angloApi/User/api/loginPlus");
 
 			curl_setopt($curl_request,CURLOPT_CUSTOMREQUEST,"POST");
 			curl_setopt($curl_request,CURLOPT_HTTPHEADER,array(
@@ -322,13 +184,13 @@ class Login extends MY_RootController {
 			//decodificar
 			$data_to_string=json_encode($data);
 			//peticiones http
-			$curl_request = curl_init("https://api.anglolatinoedu.com/User/api/loginNativo");
+			//$curl_request = curl_init("https://api.anglo.anglolatinoedu.com/User/api/loginNativo");
 			//local
-			//$curl_request = curl_init("http://localhost/angloApi/User/api/loginNativo");
+			$curl_request = curl_init("http://localhost/ColectivoApis/User/api/loginNativo");
 
 			curl_setopt($curl_request,CURLOPT_CUSTOMREQUEST,"POST");
 			curl_setopt($curl_request,CURLOPT_HTTPHEADER,array(
-				"x-api-key: ANGLOKEY",
+				"x-api-key: MhodiKey",
 				"Content-Type: application/json"
 			));
 			curl_setopt($curl_request,CURLOPT_RETURNTRANSFER,TRUE);
@@ -350,7 +212,8 @@ class Login extends MY_RootController {
 				if ($response->data->statusU=="Activo") {
 					if ($response->data->typeUsuario) {
 						$this->session->set_userdata('user_sess',$response->data);
-						redirect('Login');
+						//echo var_dump($this->session->userdata('user_sess'));
+					  redirect('Dashboard/NuevoEstudiante');
 					}else{
 						$this->session->set_flashdata('messagePredeterminado','El usuario tiene algunos problemas comunicate con Anglo Latino Education Partnership.');
 						redirect('Login');

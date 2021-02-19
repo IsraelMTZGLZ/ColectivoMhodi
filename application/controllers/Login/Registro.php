@@ -97,10 +97,10 @@ class Registro extends MY_RootController {
 				);
 				$responseApi = $this->_callApiRest('User/api/registro/',$data,"POST",null);
 				if ($responseApi['status']=='error') {
-					$this->session->set_flashdata('error',$responseApi);
+					$this->session->set_flashdata('registro','false');
 					return redirect('Registro');
 				}else{
-					$this->session->set_flashdata('facebookRegistro','yes');
+					$this->session->set_flashdata('registro','true');
 					return redirect('Login');
 				}
 			}elseif($userProfile['error']){

@@ -82,3 +82,28 @@ $config['migration_version'] = 0;
 |
 */
 $config['migration_path'] = APPPATH.'migrations/';
+
+
+// <!-- The core Firebase JS SDK is always required and must be listed first -->
+// <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-app.js"></script>
+//
+// // <!-- TODO: Add SDKs for Firebase products that you want to use
+// //      https://firebase.google.com/docs/web/setup#available-libraries -->
+// <script src="https://www.gstatic.com/firebasejs/7.11.0/firebase-analytics.js"></script>
+//
+// <script>
+//   // Your web app's Firebase configuration
+//   var firebaseConfig = {
+//     apiKey: "AIzaSyDMO7SpFAZOEIQJi35n-Jbw5fnEdzzylwY",
+//     authDomain: "anglotest-5ecb8.firebaseapp.com",
+//     databaseURL: "https://anglotest-5ecb8.firebaseio.com",
+//     projectId: "anglotest-5ecb8",
+//     storageBucket: "anglotest-5ecb8.appspot.com",
+//     messagingSenderId: "751910722389",
+//     appId: "1:751910722389:web:26900b1057b0a27b0baddc",
+//     measurementId: "G-P9J6XCH0JY"
+//   };
+//   // Initialize Firebase
+//   firebase.initializeApp(firebaseConfig);
+//   firebase.analytics();
+// </script>

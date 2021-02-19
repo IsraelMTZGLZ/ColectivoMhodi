@@ -30,69 +30,15 @@
 				<div class="login100-pic js-tilt" data-tilt>
 					<img src="<?=base_url('resources/landingpage/img/core-img/colectivo-removebg-preview.png');?>" alt="IMG">
 				</div>
-				<?php if ($this->session->flashdata('facebook')=="Error") { ;?>
-					<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 18px;width: 350px;">
-						<strong>Error!</strong> <?=$this->lang->line('problema_facebook_message')?>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-							<label for="">ERROR</label>
-						</button>
-					</div>
-				<?php } ;?>
-				<?php if ($this->session->flashdata('facebookRegistro')=="yes") { ;?>
-					<div class="alert alert-success alert-dismissible fade show" role="alert" style="margin-top: 18px;width: 350px;">
-						<strong>Bienvenido!</strong> Ya tienes una cuenta ahora ingresa desde la red social que elegiste, por favor revisa tu correo, es posible que el correo se encuentre en tu carpeta de spam
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-										<label for="">ERROR</label>
-						</button>
-					</div>
-				<?php } ;?>
-				<?php if ($this->session->flashdata('message')) { ;?>
-					<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 18px;width: 350px;">
-						<strong>Error!</strong> <?=@$this->session->flashdata('message')->message?>
-						<br>			<label for="">ERRORbr</label>
-						<ul>
-						<?php foreach (isset($this->session->flashdata('message')->validations) ? $this->session->flashdata('message')->validations : array() as $value) { ;?>
-								<li type="circle"> <?= $value ?> </li>
-						<?php  } ;?>
-						</ul>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-										<label for="">ERRORmessage</label>
-						</button>
-					</div>
-				<?php } ;?>
-				<?php if ($this->session->flashdata('messagePredeterminado')) { ;?>
-					<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 18px;width: 350px;">
-						<strong>Error!</strong> <?=@$this->session->flashdata('messagePredeterminado');?>
-						<br>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				<?php } ;?>
-				<?php if ($this->session->flashdata('error')) { ;?>
-					<div class="alert alert-danger alert-dismissible fade show" role="alert" style="margin-top: 18px;width: 350px;">
-						<strong>Error!</strong> <?=$this->session->flashdata('error')['message']?>
-						<ul>
-						<?php foreach (isset($this->session->flashdata('error')['validations']) ? $this->session->flashdata('message')->validations : array() as $value) { ;?>
-								<li type="circle"> <?= $value ?> </li>
-						<?php  } ;?>
-						</ul>
-						<button type="button" class="close" data-dismiss="alert" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-					</div>
-				<?php } ;?>
-				<label for=""><?php echo $this->session->flashdata('registro'); ?></label>
-				<form  action="<?=base_url('/Login/Login/autenticar');?>" method="post" id="formLogin">
+
+
+				<form class="login100-form validate-form">
 					<span class="login100-form-title">
-						Login
+						Termina tu registro
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" id="email" name="email" placeholder="Email">
+						<input class="input100" type="text" name="email" placeholder="Email">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -100,7 +46,7 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="password" id="password" placeholder="Password">
+						<input class="input100" type="password" name="pass" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
